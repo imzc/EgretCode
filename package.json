@@ -1,7 +1,7 @@
 {
 	"name": "EgretCode",
 	"description": "Egret commands for VS Code",
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"publisher": "zc",
 	"icon":"icon.png",
 	"engines": {
@@ -23,7 +23,7 @@
 		"onCommand:egret.startserver",
 		"onCommand:egret.shutdown"
 	],
-	"main": "./out/src/extension",
+	"main": "./out/extension",
 	"contributes": {
 		"commands": [{
 			"command": "egret.build",

@@ -101,7 +101,7 @@ function runEgretCommand(cmdKey: string) {
 	
 	if(cmdKey=="run"){
 		
-		open('egret startserver "'+vscode.workspace.rootPath+'"');
+		open('egret startserver');
 		vscode.window.setStatusBarMessage('Egret Server is running...');
 		return;
 	}
@@ -138,17 +138,17 @@ function log(message: string) {
 }
 
 	
-export function open(appName?, callback?, options?) {
+function open(appName) {
     var opener;
 
     switch (process.platform) {
         case 'darwin':
-			opener = 'open -a ' + file.escapePath(appName);
+			opener = 'osascript -e \'tell app "Terminal" to do script "egret startserver ' + file.escapePath(vscode.workspace.rootPath).replace(/ /ig,"\\\\ ")+'"\'';
             break;
         case 'win32':
-			opener = 'start ' + file.escapePath(appName);
+			opener = 'start egret startserver "' + file.escapePath(vscode.workspace.rootPath)+'"';
 			break;
     }
 
-    return cprocess.exec(opener,options, callback);
+    return cprocess.exec(opener);
 }
