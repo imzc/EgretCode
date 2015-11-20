@@ -1,0 +1,48 @@
+{
+	"name": "EgretCode",
+	"description": "Egret commands for VS Code",
+	"version": "0.0.1",
+	"publisher": "zc",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:egretProperties.json",
+		"onCommand:egret.build",
+		"onCommand:egret.init",
+		"onCommand:egret.buildEngine",
+		"onCommand:egret.publish",
+		"onCommand:egret.startserver",
+		"onCommand:egret.shutdown"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [{
+			"command": "egret.build",
+			"title": "Egret Build"
+		},{
+			"command": "egret.init",
+			"title": "Egret Init"
+		},{
+			"command": "egret.buildEngine",
+			"title": "Egret Build Engine"
+		},{
+			"command": "egret.publish",
+			"title": "Egret Publish"
+		},{
+			"command": "egret.startserver",
+			"title": "Egret StartServer / Run"
+		}]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	}
+}
